@@ -11,8 +11,18 @@ const path = require("path");
 const app = express();
 
 require("dotenv").config({
-  path: path.join(process.cwd(), "/config/.env"),
+  path: path.join(process.cwd(), "/server/config/.env"),
 });
+
+// Connect to a data base
+const db = mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
+  .then(() => console.log(`database connected`))
+  .catch((err) => console.error(err));
 
 //   Basic security
 app.use(helmet());
@@ -29,9 +39,8 @@ app.use(cookieParser());
 // Morgan
 app.use(morgan("common"));
 
-app.get("/", (req, res) => {
-  res.send("<h1>Welcome to Admin Dashboard</h1>");
-});
+app.use("/api/v1/client", require("./routers/api/client"));
+// app.use("/api/v1/user", require("./routers/api/user"));
 
 const PORT = process.env.PORT || 5000;
 
