@@ -16,12 +16,10 @@ const userSchema = new Schema({
   },
   created_at: {
     type: Date,
-    required: true,
     default: Date.now(),
   },
-  updated_at: {
+  last_login: {
     type: Date,
-    required: true,
     default: Date.now(),
   },
   sexe: {

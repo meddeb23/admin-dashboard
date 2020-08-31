@@ -40,7 +40,7 @@ app.use(cookieParser());
 app.use(morgan("common"));
 
 app.use("/api/v1/client", require("./routers/api/client"));
-// app.use("/api/v1/user", require("./routers/api/user"));
+app.use("/api/v1/user", require("./routers/api/user"));
 
 const PORT = process.env.PORT || 5000;
 
