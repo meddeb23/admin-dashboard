@@ -1,11 +1,18 @@
 #BACKEND
 
-- [] User authentication
-- [] Add user
-- [] Update user
-- [] User detail
-- [] Delete user
+- [*] User authentication
+- [*] Add client
+- [*] Update client
+- [*] client detail
+- [*] Delete client
 - [] Search for users :
-    [] By name 
-    [] By disease
-    [] by visite Date (optional)
+    [*] By name 
+    [*] By disease
+    [*] by visite Date (optional)
+
+- [] take Appointment
+- [] Update Appointment
+- [] Delete Appointment
+- [] get Appointment:
+    - [] By Date (today, next week...)
+

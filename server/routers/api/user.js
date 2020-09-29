@@ -6,7 +6,7 @@ const { auth } = require("../../middleware/authMiddleware");
 // @route   POST /api/v1/client/register
 // @desc    register new client
 // @access  Public
-router.post("/create", register);
+router.post("/register", register);
 
 // @route   GET /api/v1/user/login
 // @desc    user login

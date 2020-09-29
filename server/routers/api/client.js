@@ -5,8 +5,10 @@ const {
   updateClient,
   getAllClient,
   deleteClient,
+  searchClient,
 } = require("../../controller/clientController");
 const { auth } = require("../../middleware/authMiddleware");
+const router = require("./user");
 
 const route = express.Router();
 
@@ -20,10 +22,10 @@ route.post("/create", auth, createClient);
 // @access  Privat
 route.get("/all", auth, getAllClient);
 
-// @route   GET /api/v1/client/:clientId
-// @desc    get client by id
+// @route   GET /api/v1/client/search?searchQuery&offset=0&limit=10
+// @desc    search for clients
 // @access  Privat
-route.get("/:clientId", auth, getClient);
+route.get("/search", auth, searchClient);
 
 // @route   POST /api/v1/client/update
 // @desc    update client detail
@@ -34,5 +36,10 @@ route.post("/update", auth, updateClient);
 // @desc    Delete client
 // @access  Privat
 route.post("/delete", auth, deleteClient);
+
+// @route   GET /api/v1/client/:clientId
+// @desc    get client by id
+// @access  Privat
+route.get("/:clientId", auth, getClient);
 
 module.exports = route;

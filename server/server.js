@@ -16,7 +16,7 @@ require("dotenv").config({
 
 // Connect to a data base
 const db = mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect(process.env.LOCAL_MONGO, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

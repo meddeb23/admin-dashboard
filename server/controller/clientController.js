@@ -1,4 +1,5 @@
 const Client = require("../models/client");
+const Appo = require("../models/Appointment");
 
 exports.createClient = async (req, res) => {
   const {
@@ -135,6 +136,7 @@ exports.updateClient = async (req, res) => {
         sexe: sexe,
         disease: disease,
         operations: operations,
+        updated_at: Date.now(),
       },
       { new: true }
     );
@@ -156,3 +158,32 @@ exports.updateClient = async (req, res) => {
     });
   }
 };
+
+exports.searchClient = async (req, res) => {
+  try {
+    let { limit, offset } = req.query;
+    let credentials = {};
+    for (const key of Object.keys(req.query)) {
+      if (key !== "limit" && key !== "offset") {
+        credentials[key] = req.query[key];
+      }
+    }
+    (limit = parseInt(limit)), (offset = parseInt(offset));
+    if (!limit || (!offset && offset !== 0)) {
+      limit = 50;
+      offset = 0;
+    }
+    const clients = await Client.find(credentials).limit(limit).skip(offset);
+    if (clients.length === 0)
+      return res
+        .status(404)
+        .json({ message: "No Client with these credentials", credentials });
+    return res.status(200).json({ clients });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message || "Some error occurred while retrieving clients.",
+    });
+  }
+};
+
+exports.takeAppoitment = async (req, res) => {};
