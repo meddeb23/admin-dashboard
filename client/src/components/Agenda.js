@@ -31,13 +31,13 @@ var items = [
  
 export default class Agenda extends React.Component {
   constructor(props){
-  super(props);
+   super(props)
     this.state = {
       items:items,
       selected:[],
       cellHeight:30,
       showModal:false,
-      locale:"fr",
+      locale:"en",
       rowsPerHour:2,
       numberOfDays:4,
       startDate: new Date()
@@ -48,13 +48,13 @@ export default class Agenda extends React.Component {
   }
  
 handleCellSelection(item){
-  console.log('handleCellSelection',item)
+  this.setState({showModal:true})
 }
 handleItemEdit(item){
-  console.log('handleItemEdit', item)
+  this.setState({showModal:true})
 }
 handleRangeSelection(item){
-  console.log('handleRangeSelection', item)
+  this.setState({showModal:true})
 }
   render() {
     return (
@@ -75,9 +75,32 @@ handleRangeSelection(item){
           onItemEdit={this.handleItemEdit.bind(this)}
           onCellSelect={this.handleCellSelection.bind(this)}
           onRangeSelection={this.handleRangeSelection.bind(this)}/>
+          {
+      this.state.showModal?
+          <Modal clickOutside={()=>this.setState({showModal:false}) } >
+            <div className="modal-content">
+              <ReactAgendaCtrl
+                items={this.state.items}
+                itemColors={colors}
+                selectedCells={this.state.selected}
+                Addnew={this.addNewEvent}
+               edit={this.editEvent}  />
+            </div>
+
+        </Modal>:''
+}
       </div>
      
     );
   }
 }
- 
+ //create  an appointement
+const Eventify=(name)=> {
+  return {
+    _id :guid(),
+     name ,
+     startDateTime : new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 11, 0),
+     endDateTime   : new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 13, 0),
+     classes  : 'color-2 color-3'
+   }
+ }

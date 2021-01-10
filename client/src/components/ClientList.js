@@ -5,7 +5,7 @@ const ClientList = () => {
     return (
  <div class="row" >
             {list.map((card,i)=>{
-                return(<ClientCard />);})}
+                return(<ClientCard  id={i} />);})}
             </div>
            
             

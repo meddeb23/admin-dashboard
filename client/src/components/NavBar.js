@@ -1,19 +1,20 @@
 import React from 'react';
+import {Link} from "react-router-dom"
 
 class NavBar extends React.Component {
 
   render() {
     return (
       <nav class="navbar navbar-expand-md navbar-dark bg-success">
-
-        <a class="navbar-brand" href="#">Home</a>
+        
+        <a class="navbar-brand" href="/">Home</a>
         <ul class="navbar-nav mr-auto">
       
           <li class="nav-item">
-            <a class="nav-link" href="#"  role="button">Cours</a>
+            <a class="nav-link" href="/"  role="button">Client</a>
           </li>
-          <li class="nav-item"><a class="nav-link " href="#">Articles</a></li>
-          <li class="nav-item"><a class="nav-link " href="#">Contact</a></li>
+          <li class="nav-item"><a class="nav-link " href="/">Appointements</a></li>
+          <li class="nav-item"><a class="nav-link " href="/contact">Contact</a></li>
         </ul>
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
