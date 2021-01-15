@@ -14,6 +14,8 @@ import Agenda from './components/Agenda';
 import Home from './components/pages/Home';
 import ClientDetail from './components/pages/ClientDetail';
 import ContactPage from './components/pages/ContactPage';
+import AddClient from './components/AddClient';
+import ClientEdit from './components/pages/ClientEdit';
 
 function App() {
   return (
@@ -22,8 +24,10 @@ function App() {
   <Router basename={"/"} >  
   <Route exact path='/' component={Home} />   
    <Route path='/agenda' component={Agenda}  />
-   <Route path={`/client/:cid`} component={ClientDetail} />
+   <Route exact path={`/client/:cid`} component={ClientDetail} />
    <Route path={'/contact'} component={ContactPage} />
+   <Route path={'/add-client'} component={AddClient} />
+   <Route  path={'/client/:cid/edit'}  component={ClientEdit} />
     <Switch>
     </Switch>
   </Router>

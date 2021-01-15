@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom"
 
 class NavBar extends React.Component {
 
@@ -11,7 +10,7 @@ class NavBar extends React.Component {
         <ul class="navbar-nav mr-auto">
       
           <li class="nav-item">
-            <a class="nav-link" href="/"  role="button">Client</a>
+            <a class="nav-link" href="/add-client"  role="button">Client</a>
           </li>
           <li class="nav-item"><a class="nav-link " href="/">Appointements</a></li>
           <li class="nav-item"><a class="nav-link " href="/contact">Contact</a></li>

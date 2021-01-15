@@ -7,6 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 
+const deleteClient=(id)=>{}
 
 function ClientDetail (client){
   let { path, url } = useRouteMatch();
@@ -21,7 +22,7 @@ function ClientDetail (client){
             <div class="card text-center">
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
+     <li class="nav-item">
         <a class={`nav-link  ${isActive[0]?'active':''} `} 
          onClick={()=>setisActive([true,false,false])} >data 1</a>
       </li>
@@ -32,6 +33,12 @@ function ClientDetail (client){
       <li class="nav-item">
         <a class={`nav-link ${isActive[2]?'active':''}`} 
          onClick={()=>setisActive([false,false,true])}  >data 3</a>
+      </li>
+      <li class="nav-item  ml-auto">
+      </li>
+      <li class="nav-item  ml-auto">
+      <a href={`${url}/edit`} ><button class="btn btn-warning rounded" >Edit</button> </a>  
+        <button class="btn btn-danger rounded" data-bs-toggle="modal" data-bs-target="#delete" >Delete</button>
       </li>
     </ul>
   </div>
@@ -47,7 +54,6 @@ function ClientDetail (client){
     <a href="#" class="btn btn-primary">Go somewhere</a>
 </motion.div>
 }       
-
 {
 isActive[1] &&
 <motion.div   className="toppings container"
@@ -55,14 +61,11 @@ isActive[1] &&
     initial="hidden"
     animate="visible" 
     exit="exit" >
-
 <h5 class="card-title">data 2</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
 </motion.div>
-
 }
-
 {
 isActive[2] &&<motion.div   className="toppings container"
 variants={nextVariants}
@@ -77,7 +80,23 @@ exit="exit" >
 
   </div>
 </div>
-
+<div class="modal" id="delete" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">DELETE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this client ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" color="$red-600" >Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
         </React.Fragment>
      );
 }

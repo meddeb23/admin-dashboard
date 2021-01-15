@@ -2,7 +2,7 @@ import React from 'react';
 
 const ClientCard = ({id}) => {
   return (
-    <div class="col-sm-4">
+    <div class="col-sm-4" id="card" >
     <div class="card" >
       <div class="card-body" >
         <h5 class="card-title">a client</h5>

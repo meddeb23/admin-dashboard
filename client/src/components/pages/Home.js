@@ -1,6 +1,5 @@
 import React from 'react';
 import ClientList from "../ClientList"
-import Agenda from "../Agenda"
 import {  Link} from "react-router-dom";
 
 const Home = () => {
