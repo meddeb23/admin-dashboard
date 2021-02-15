@@ -3,25 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.npm1.1",
+    "@tailwindcss/postcss7-compat": "^2.0.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "framer": "^1.2.12",
     "mdbreact": "^5.0.1",
     "motion": "^5.0.0-beta26",
+    "postcss": "^7.0.35",
     "react": ">=16.8.0",
     "react-agenda": "0.0.8",
     "react-bootstrap": "^1.4.0",
     "react-dom": ">=16.8.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.1"
+    "react-scripts": "^4.0.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

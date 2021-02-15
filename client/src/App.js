@@ -5,10 +5,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Agenda from './components/Agenda';
 import Home from './components/pages/Home';
@@ -16,21 +14,21 @@ import ClientDetail from './components/pages/ClientDetail';
 import ContactPage from './components/pages/ContactPage';
 import AddClient from './components/AddClient';
 import ClientEdit from './components/pages/ClientEdit';
+import ErrorPage  from "./components/pages/ErrorPage";
 
 function App() {
   return (
 <React.Fragment>
-  <Navbar/>
-  <Router basename={"/"} >  
+  <Navbar/>  
   <Route exact path='/' component={Home} />   
-   <Route path='/agenda' component={Agenda}  />
+   <Route exact path='/agenda' component={Agenda}  />
    <Route exact path={`/client/:cid`} component={ClientDetail} />
-   <Route path={'/contact'} component={ContactPage} />
-   <Route path={'/add-client'} component={AddClient} />
-   <Route  path={'/client/:cid/edit'}  component={ClientEdit} />
+   <Route exact path={'/contact'} component={ContactPage} />
+   <Route  exact path={'/add-client'} component={AddClient} />
+   <Route  exact path={'/client/:cid/edit'}  component={ClientEdit} />
+   <Route  component={ErrorPage} />
     <Switch>
     </Switch>
-  </Router>
 </React.Fragment>        
   );
 }

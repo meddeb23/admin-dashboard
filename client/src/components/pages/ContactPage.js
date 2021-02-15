@@ -1,5 +1,4 @@
 import React from "react";
-import "./contact.css";
 const ContactPage = () => {
   return (
     <React.Fragment>

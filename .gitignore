@@ -3,4 +3,5 @@
 
 /server/config/.env
 
-/tasl.txt
+/task.txt
+/.vscode

@@ -1,0 +1,5 @@
+i have added to client :
+-navbar 
+-useEffect : a custom hook for fetching (not fixed yet)
+-tailwind css 
+-404 page
