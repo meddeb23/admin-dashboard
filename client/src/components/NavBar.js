@@ -6,22 +6,22 @@ const [search, setsearch] = useState("");
 const [isLogged, setisLogged] = useState(true)
 
     return ( 
-     <nav class="grid sm:grid-cols-3 sm:h-full px-2  bg-gray-200 py-2 " >
+     <nav class="grid sm:grid-cols-5 sm:h-full px-2  bg-gray-200 py-2 shadow-md " >
     <h1 class=" text-xl text-green-400 font-medium hover:bg-green-400 hover:text-white
-    p-2 rounded transition ease-linear duration-500 inset-x-0 bottom-0" 
+    p-2 rounded transition ease-linear duration-500 inset-x-0 bottom-0 col-span-1" 
     >Movie Rater</h1>
-    <div class="left-0 " >
+    <div class="left-0 col-span-3" >
     <Link to="/"><a
      class="inline-block border-b-4 hover:border-green-400 text-xl font-medium mx-2
-     transition ease-linear duration-300 " 
+     transition ease-linear duration-300 text-green-400 " 
     >Main</a></Link>
     <Link href="/about"><a
     class="inline-block border-b-4 hover:border-green-400 text-xl font-medium mx-2
-    transition ease-linear duration-300 " 
+    transition ease-linear duration-300 text-green-400 " 
     >About</a></Link>
     <Link to="/add" ><a
     class="inline-block border-b-4 rounded-sm hover:border-green-400 text-xl font-medium mx-2
-    transition ease-linear duration-300 " 
+    transition ease-linear duration-300  text-green-400" 
     >Add</a></Link>
 
     <form class="inline-block pl-1" >
@@ -30,11 +30,10 @@ const [isLogged, setisLogged] = useState(true)
     focus:border-transparent  shadow appearance-none  rounded w-2/3 mr-2 text-grey-darker"/>
 <button class="bg-green-400 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 
 text-white  rounded font-meduim p-1 text-xl"
->
-Find  </button>
+>Find  </button>
     </form>
-    </div>
-    <div class="text-2xl text-gray-600 font-normal float-right pr-3">
+</div>
+    <div class="text-2xl text-gray-600 font-normal float-right pr-3 col-span-1 right-2 content-end">
         {isLogged?(
         <div  >Log Out</div> ):(
             <div class="flex float-right pr-3" >
