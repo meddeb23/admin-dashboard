@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import  {API } from "../Api";
 const Register = () => {
     const [user, setuser] = useState({
         firstName:"",
@@ -7,8 +8,13 @@ const Register = () => {
         sexe:"",
         email:"",
         password:"",
-        password1:""
     });
+
+const handleRegister=async(e)=>{
+    e.preventDefault()
+    const res = await API.registerUser(user)
+     
+}
 
     return (
         <div class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center px-5 py-5">
@@ -30,7 +36,8 @@ const Register = () => {
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
                                 <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none 
-                                focus:border-indigo-500" placeholder="John" />
+                                focus:border-indigo-500" placeholder="John" 
+                                onChange={(e)=>setuser({...user,firstName:e.target.value})} />
                             </div>
                         </div>
                         <div class="w-1/2 px-3 mb-5">
@@ -38,7 +45,8 @@ const Register = () => {
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
                                 <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none 
-                                focus:border-indigo-500" placeholder="Smith" />
+                                focus:border-indigo-500" placeholder="Smith" 
+                                onChange={(e)=>setuser({...user,lastName:e.target.value})} />
                             </div>
                         </div>
                     </div>
@@ -48,7 +56,8 @@ const Register = () => {
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
                                 <input type="date" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none 
-                                focus:border-indigo-500" />
+                                focus:border-indigo-500" 
+                                onChange={(e)=>setuser({...user,birthday:e.target.value})} />
                             </div>
                         </div>
                         <div class="w-1/2 px-3 mb-5">
@@ -70,7 +79,8 @@ const Register = () => {
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
                                 <input type="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none 
-                                focus:border-indigo-500" placeholder="johnsmith@example.com"  />
+                                focus:border-indigo-500" placeholder="johnsmith@example.com" 
+                                onChange={(e)=>setuser({...user,email:e.target.value})}  />
                             </div>
                         </div>
                     </div>
@@ -80,24 +90,16 @@ const Register = () => {
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
                                 <input type="password" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none
-                                 focus:border-indigo-500" placeholder="************" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex -mx-3">
-                        <div class="w-full px-3 mb-12">
-                            <label for="" class="text-xs font-semibold px-1">Password confirmation</label>
-                            <div class="flex">
-                                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
-                                <input type="password" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none
-                                 focus:border-indigo-500" placeholder="************" />
+                                 focus:border-indigo-500" placeholder="************" 
+                                 onChange={(e)=>setuser({...user,password:e.target.value})} />
                             </div>
                         </div>
                     </div>
                     <div class="flex -mx-3">
                         <div class="w-full px-3 mb-5">
                             <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 
-                            focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">REGISTER NOW</button>
+                            focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold" 
+                            onClick={handleRegister} >REGISTER NOW</button>
                         </div>
                     </div>
                 </div>

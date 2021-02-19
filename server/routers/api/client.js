@@ -30,12 +30,12 @@ route.get("/search", auth, searchClient);
 // @route   POST /api/v1/client/update
 // @desc    update client detail
 // @access  Privat
-route.post("/update", auth, updateClient);
+route.put("/update", auth, updateClient);
 
 // @route   POST /api/v1/client/delete
 // @desc    Delete client
 // @access  Privat
-route.post("/delete", auth, deleteClient);
+route.delete("/delete", auth, deleteClient);
 
 // @route   GET /api/v1/client/:clientId
 // @desc    get client by id

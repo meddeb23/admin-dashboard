@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ClientList from "../ClientList"
 import {  Link} from "react-router-dom";
+import {ClientContext} from "../context/ClientContext";
 
 const Home = () => {
     const appointememnts = new Array(5).fill(0);
     const [isActive, setisActive] = React.useState(new Array(5).fill(false));
-
+   
    const toggleActive =(i)=>{
     var newArray = [...isActive]
     newArray[i] = !isActive[i];

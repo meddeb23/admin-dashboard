@@ -1,9 +1,6 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/NavBar';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import "bootstrap-css-only/css/bootstrap.min.css";
-import "mdbreact/dist/css/mdb.css";
 import {
   Switch,
   Route,
@@ -22,17 +19,19 @@ function App() {
   return (
 <React.Fragment>
   <Navbar/>
-  <Route exact path='/' component={Home} />   
-   <Route exact path='/agenda' component={Agenda}  />
-   <Route exact path={`/client/:cid`} component={ClientDetail} />
-   <Route exact path={'/contact'} component={ContactPage} />
-   <Route  exact path={'/add-client'} component={AddClient} />
-   <Route  exact path={'/client/:cid/edit'}  component={ClientEdit} />
-   <Route  exact path={'/login'}  component={LogIn} />
-   <Route exact path={'/register'}  component={Register} />
-   <Route  component={ErrorPage} />
     <Switch>
+    <Route exact path='/' component={Home} />   
+   <Route exact path='/agenda' component={Agenda}  />
+   <Route  exact path='/client/edit'  component={ClientEdit} />
+
+   <Route exact path='/client/:cid' component={ClientDetail} />
+   <Route exact path='/contact' component={ContactPage} />
+   <Route  exact path='/add-client' component={AddClient} />
+   <Route  exact path='/login'  component={LogIn} />
+   <Route exact path='/register'  component={Register} />
+   <Route  component={ErrorPage} />
     </Switch>
+  
 </React.Fragment>        
   );
 }
