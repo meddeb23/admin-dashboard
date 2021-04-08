@@ -13,7 +13,7 @@ const Register = () => {
 const handleRegister=async(e)=>{
     e.preventDefault()
     const res = await API.registerUser(user)
-     
+     console.log(res)
 }
 
     return (
