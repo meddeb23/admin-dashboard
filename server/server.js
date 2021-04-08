@@ -15,7 +15,8 @@ require("dotenv").config({
 });
 
 // Connect to a data base
-const db = mongoose
+reaquire("../database/db.js")
+/* const db = mongoose
   .connect(process.env.LOCAL_MONGO, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -23,7 +24,7 @@ const db = mongoose
   })
   .then(() => console.log(`database connected`))
   .catch((err) => console.error(err));
-
+ */
 //   Basic security
 app.use(helmet());
 
