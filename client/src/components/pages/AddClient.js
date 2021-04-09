@@ -6,7 +6,9 @@ const AddClient = () => {
   //add a client to the data base
   const handleAdd = async (e) => {
     e.preventDefault();
-    await addClient(client);
+    const res = await addClient(client);
+    if (!res?.message) console.log("success!");
+    else console.log(res.message);
   };
 
   return (
@@ -14,63 +16,84 @@ const AddClient = () => {
       <h2 className="text-2xl font-semibold">Add a client</h2>
 
       <form className="grid grid-flow-row">
+        <span className="w-5/6  grid grid-cols-2 gap-2">
+          <span>
+            <label className={labelText}>First name</label>
+            <input
+              onChange={(e) =>
+                setclient({ ...client, firstName: e.target.value })
+              }
+              className={input}
+              type="text"
+            />
+          </span>
+          <span>
+            <label class={labelText}>last name</label>
+            <input
+              onChange={(e) =>
+                setclient({ ...client, lastName: e.target.value })
+              }
+              className={input}
+              type="text"
+            />
+          </span>
+        </span>
+        <span className="w-5/6 grid grid-cols-2 gap-2">
+          <span>
+            <label class={labelText}>gender</label>
+            <select
+              id="gender"
+              onChange={(e) => setclient({ ...client, sexe: e.target.value })}
+              className={input}
+            >
+              <option value="male">male</option>
+              <option value="female">female</option>
+              <option value="other">other</option>
+            </select>
+          </span>
+
+          <span>
+            <label class={labelText}>birthday</label>
+            <input
+              onChange={(e) =>
+                setclient({ ...client, birthday: e.target.value })
+              }
+              type="date"
+              className={input}
+            />
+          </span>
+        </span>
+
+        <span className="w-5/6 grid grid-cols-2 gap-2">
+          <span>
+            <label class={labelText}>email</label>
+            <input
+              onChange={(e) => setclient({ ...client, email: e.target.value })}
+              className={input}
+              type="email"
+            />
+          </span>
+          <span>
+            <label class={labelText}>operations</label>
+            <input
+              onChange={(e) =>
+                setclient({ ...client, operations: e.target.value })
+              }
+              className={input}
+            />
+          </span>
+        </span>
         <span className="w-5/6">
-          <label className={labelText}>First name</label>
+          <label class={labelText}>disease</label>
           <input
-            onChange={(e) =>
-              setclient({ ...client, firstName: e.target.value })
-            }
-            className={input}
-          />
-          <label class={labelText}>last name</label>
-          <input
-            onChange={(e) => setclient({ ...client, lastName: e.target.value })}
+            type="text"
+            onChange={(e) => setclient({ ...client, disease: e.target.value })}
             className={input}
           />
         </span>
-        <span className="w-5/6">
-          <label class={labelText}>gender</label>
-          <select
-            id="gender"
-            onChange={(e) => setclient({ ...client, sexe: e.target.value })}
-            className={input}
-          >
-            <option value="male">male</option>
-            <option value="female">female</option>
-            <option value="other">other</option>
-          </select>
 
-          <label class={labelText}>birthday</label>
-          <input
-            onChange={(e) => setclient({ ...client, birthday: e.target.value })}
-            type="date"
-            className={input}
-          />
-        </span>
-
-        <span className="w-5/6">
-          <label class={labelText}>email</label>
-          <input
-            onChange={(e) => setclient({ ...client, email: e.target.value })}
-            className={input}
-          />
-          <label class={labelText}>operations</label>
-          <input
-            onChange={(e) =>
-              setclient({ ...client, operations: e.target.value })
-            }
-            className={input}
-          />
-        </span>
-
-        <label class={labelText}>disease</label>
-        <input
-          type="text"
-          onChange={(e) => setclient({ ...client, disease: e.target.value })}
-          className={input}
-        />
         <button
-          className="text-xl font-medium text-white bg-purple-500"
+          className="text-xl font-medium text-white bg-purple-500 mx-3 py-3 hover:bg-purple-700"
           onClick={handleAdd}
         >
           Save

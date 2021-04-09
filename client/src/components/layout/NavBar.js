@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [search, setsearch] = useState("");
-
+  let location = useLocation();
+  console.log(location.pathname);
   let isLogged = false;
   return (
     <nav class="grid sm:grid-cols-5 sm:h-full px-2  bg-gray-200 py-2 shadow-md ">
@@ -16,24 +17,30 @@ const Navbar = () => {
       <div class="left-0 col-span-3">
         <NavLink to="/">
           <span
-            class="inline-block border-b-4 hover:border-green-400 text-xl font-medium mx-2
-     transition ease-linear duration-300 text-green-400 "
+            className={`inline-block border-b-4 ${
+              location.pathname == "/" ? "border-green-400" : null
+            } text-xl font-medium mx-2
+     transition ease-linear duration-300 text-green-400`}
           >
             Main
           </span>
         </NavLink>
         <NavLink to="/about">
           <span
-            class="inline-block border-b-4 hover:border-green-400 text-xl font-medium mx-2
-    transition ease-linear duration-300 text-green-400 "
+            className={`inline-block border-b-4 ${
+              location.pathname == "/about" ? "border-green-400" : null
+            } text-xl font-medium mx-2
+     transition ease-linear duration-300 text-green-400`}
           >
             About
           </span>
         </NavLink>
         <NavLink to="/add-client">
           <span
-            class="inline-block border-b-4 rounded-sm hover:border-green-400 text-xl font-medium mx-2
-    transition ease-linear duration-300  text-green-400"
+            className={`inline-block border-b-4 ${
+              location.pathname == "/add-client" ? "border-green-400" : null
+            } text-xl font-medium mx-2
+     transition ease-linear duration-300 text-green-400`}
           >
             Add
           </span>

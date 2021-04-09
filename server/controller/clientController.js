@@ -21,13 +21,13 @@ exports.createClient = async (req, res) => {
     if (client) return res.status(400).json({ message: "Email alrady used" });
 
     const newClient = new Client({
-      firstName: firstName,
-      lastName: lastName,
-      birthday: birthday,
-      email: email,
-      sexe: sexe,
-      disease: disease,
-      operations: operations,
+      firstName,
+      lastName,
+      birthday,
+      email,
+      sexe,
+      disease,
+      operations,
     });
     const savedClient = await newClient.save();
     if (!newClient) return res.status(500).json({ message: "Internal Error" });

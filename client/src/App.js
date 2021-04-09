@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/client/edit" component={ClientEdit} />
         <Route exact path="/client/:cid" component={ClientDetail} />
         <Route exact path="/add-client" component={AddClient} />
-        <Route exact path="/contact" component={ContactPage} />
+        <Route exact path="/about" component={ContactPage} />
         <Route exact path="/login" component={LogIn} />
         <Route exact path="/register" component={Register} />
         <Route component={ErrorPage} />

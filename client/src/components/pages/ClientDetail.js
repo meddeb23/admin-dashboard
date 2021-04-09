@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, useRouteMatch } from "react-router-dom";
 import { motion } from "framer";
-import { removeClient } from "../api/Client";
-
-const deleteClient = async (id) => {
-  await removeClient(id);
-};
-
+import { deleteModal } from "../layout/DeleteModal";
 function ClientDetail(client) {
+  const [showModal, setShowModal] = useState(false);
+
   let { path, url } = useRouteMatch();
   console.log({ path, url });
   let { cid } = useParams();
@@ -15,7 +12,8 @@ function ClientDetail(client) {
   return (
     <React.Fragment>
       Client detail {cid}
-      <div class="card text-center">
+      <div class="card text-center" onBlur={() => setShowModal(false)}>
+        {showModal && <deleteModal />}
         <div class="card-header">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">

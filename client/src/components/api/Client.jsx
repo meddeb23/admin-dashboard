@@ -13,11 +13,11 @@ export const getClients = async () => {
   }
 };
 //add a client
-export const addClient = async (newProduct) => {
+export const addClient = async (newClient) => {
   try {
     const res = await axios.post(
       `${process.env.REACT_APP_BASIC_URL}/api/v1/client/create`,
-      { newProduct }
+      newClient
     );
     return res;
   } catch (err) {
@@ -25,11 +25,11 @@ export const addClient = async (newProduct) => {
   }
 };
 //delete a Client
-export const removeClient = async (pId) => {
+export const removeClient = async (clientId) => {
   try {
     const res = await axios.delete(
       `${process.env.REACT_APP_BASIC_URL}/api/v1/client/delete`,
-      { pId }
+      clientId
     );
     return res;
   } catch (err) {
